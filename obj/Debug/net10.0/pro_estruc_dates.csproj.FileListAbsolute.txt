@@ -1,0 +1,14 @@
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.AssemblyInfoInputs.cache
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.AssemblyInfo.cs
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\pro_estruc_dates\bin\Debug\net10.0\pro_estruc_dates.exe
+C:\Users\ASUS\pro_estruc_dates\bin\Debug\net10.0\pro_estruc_dates.deps.json
+C:\Users\ASUS\pro_estruc_dates\bin\Debug\net10.0\pro_estruc_dates.runtimeconfig.json
+C:\Users\ASUS\pro_estruc_dates\bin\Debug\net10.0\pro_estruc_dates.dll
+C:\Users\ASUS\pro_estruc_dates\bin\Debug\net10.0\pro_estruc_dates.pdb
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.dll
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\refint\pro_estruc_dates.dll
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.pdb
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\pro_estruc_dates.genruntimeconfig.cache
+C:\Users\ASUS\pro_estruc_dates\obj\Debug\net10.0\ref\pro_estruc_dates.dll
