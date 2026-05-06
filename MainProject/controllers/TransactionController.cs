@@ -1,20 +1,33 @@
 namespace MainProject.Controllers;
 
+using Listas;
 using Pila;
 using MainProject.Entities;
 
 public class TransactionController
 {
-    private Pila<Transaction> transactionList;
+    public const string TipoDeposito = "Depósito";
+    public const string TipoRetiro = "Retiro";
+    public const string TipoCancelacionDeposito = "Cancelación de depósito";
+    public const string TipoCancelacionRetiro = "Cancelación de retiro";
+
+    private Pila<Transaction> undoStack;
+    private ListaEnlazada<Transaction> history;
 
     public TransactionController()
     {
-        transactionList = new Pila<Transaction>();
+        undoStack = new Pila<Transaction>();
+        history = new ListaEnlazada<Transaction>();
     }
 
-    public Pila<Transaction> TransactionList
+    public Pila<Transaction> UndoStack
     {
-        get { return transactionList; }
+        get { return undoStack; }
+    }
+
+    public ListaEnlazada<Transaction> History
+    {
+        get { return history; }
     }
 
     public bool Deposit(Account account, double monto)
@@ -25,9 +38,10 @@ public class TransactionController
             return false;
         }
 
-        Transaction t = new Transaction("Deposit", monto);
+        Transaction t = new Transaction(TipoDeposito, monto);
         t.Deposit(account);
-        transactionList.Apilar(t);
+        undoStack.Apilar(t);
+        history.Agregar(t);
         Console.WriteLine($"Depósito de {monto} realizado. Saldo actual: {account.Saldo}");
         return true;
     }
@@ -46,31 +60,38 @@ public class TransactionController
             return false;
         }
 
-        Transaction t = new Transaction("Withdraw", monto);
+        Transaction t = new Transaction(TipoRetiro, monto);
         t.Withdraw(account);
-        transactionList.Apilar(t);
+        undoStack.Apilar(t);
+        history.Agregar(t);
         Console.WriteLine($"Retiro de {monto} realizado. Saldo actual: {account.Saldo}");
         return true;
     }
 
     public bool UndoLastTransaction(Account account)
     {
-        if (transactionList.EstaVacia())
+        if (undoStack.EstaVacia())
         {
             Console.WriteLine("No hay transacciones para deshacer.");
             return false;
         }
 
-        Transaction last = transactionList.Desapilar();
+        Transaction last = undoStack.Desapilar();
+        string cancelTipo;
 
-        if (last.Tipo == "Deposit")
+        if (last.Tipo == TipoDeposito)
         {
             account.Saldo -= last.MontoTransacion;
+            cancelTipo = TipoCancelacionDeposito;
         }
         else
         {
             account.Saldo += last.MontoTransacion;
+            cancelTipo = TipoCancelacionRetiro;
         }
+
+        Transaction cancellation = new Transaction(cancelTipo, last.MontoTransacion);
+        history.Agregar(cancellation);
 
         Console.WriteLine($"Transacción deshecha: {last}. Saldo actual: {account.Saldo}");
         return true;
@@ -78,24 +99,32 @@ public class TransactionController
 
     public void ShowLastTransaction()
     {
-        if (transactionList.EstaVacia())
+        if (history.EstaVacia())
         {
             Console.WriteLine("No hay transacciones registradas.");
             return;
         }
 
-        Console.WriteLine($"Última transacción: {transactionList.Cima()}");
+        Console.WriteLine($"Última transacción: {history.ObtenerUltimo()}");
     }
 
     public void ShowHistory()
     {
-        if (transactionList.EstaVacia())
+        if (history.EstaVacia())
         {
             Console.WriteLine("No hay transacciones registradas.");
             return;
         }
 
-        Console.WriteLine("Historial de transacciones (de más reciente a más antigua):");
-        transactionList.Imprimir();
+        Console.WriteLine("Historial de transacciones (cronológico):");
+        Listas.Nodo<Transaction> actual = history.Cabeza;
+        int i = 1;
+
+        while (actual != null)
+        {
+            Console.WriteLine($"  {i}. {actual.Valor}");
+            actual = actual.Siguiente;
+            i++;
+        }
     }
 }

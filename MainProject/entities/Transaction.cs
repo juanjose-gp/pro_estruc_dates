@@ -26,13 +26,11 @@ public class Transaction
     public void Deposit(Account account)
     {
         account.Saldo += montoTransacion;
-        tipo = "Deposit";
     }
 
     public void Withdraw(Account account)
     {
         account.Saldo -= montoTransacion;
-        tipo = "Withdraw";
     }
 
     public override string ToString()
