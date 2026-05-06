@@ -4,18 +4,20 @@ using MainProject.Controllers;
 
 public class Account
 {
-    private int accountNumber;
+    public const int AccountNumberLength = 10;
+
+    private string accountNumber;
     private double saldo;
     private TransactionController transactionController;
 
-    public Account(int accountNumber, double saldoInicial)
+    public Account(string accountNumber, double saldoInicial)
     {
         this.accountNumber = accountNumber;
         this.saldo = saldoInicial;
         this.transactionController = new TransactionController();
     }
 
-    public int AccountNumber
+    public string AccountNumber
     {
         get { return accountNumber; }
         set { accountNumber = value; }
@@ -30,5 +32,22 @@ public class Account
     public TransactionController TransactionController
     {
         get { return transactionController; }
+    }
+
+    public static bool IsValidAccountNumber(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            return false;
+
+        if (value.Length != AccountNumberLength)
+            return false;
+
+        for (int i = 0; i < value.Length; i++)
+        {
+            if (!char.IsDigit(value[i]))
+                return false;
+        }
+
+        return true;
     }
 }

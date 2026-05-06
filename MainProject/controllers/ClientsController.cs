@@ -58,7 +58,7 @@ public class ClientsController
         return null;
     }
 
-    public Client SearchByAccount(int accountNumber)
+    public Client SearchByAccount(string accountNumber)
     {
         Nodo<Client> actual = clientList.Cabeza;
 

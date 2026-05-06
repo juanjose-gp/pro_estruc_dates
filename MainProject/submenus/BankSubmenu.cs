@@ -76,10 +76,11 @@ public class BankSubmenu
             return;
         }
 
-        Console.Write("Número de cuenta: ");
-        if (!int.TryParse(Console.ReadLine(), out int accNumber))
+        Console.Write($"Número de cuenta (exactamente {Account.AccountNumberLength} dígitos): ");
+        string accNumber = Console.ReadLine();
+        if (!Account.IsValidAccountNumber(accNumber))
         {
-            Console.WriteLine("Número de cuenta inválido.");
+            Console.WriteLine($"Número de cuenta inválido. Debe tener exactamente {Account.AccountNumberLength} dígitos.");
             return;
         }
 
