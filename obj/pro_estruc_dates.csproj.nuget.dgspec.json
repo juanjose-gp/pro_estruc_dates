@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\pro_estruc_dates\\pro_estruc_dates.csproj": {}
+    "E:\\Files\\Milito\\UManizales\\Materias\\Prog2\\FinalProject\\pro_estruc_dates.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\pro_estruc_dates\\pro_estruc_dates.csproj": {
+    "E:\\Files\\Milito\\UManizales\\Materias\\Prog2\\FinalProject\\pro_estruc_dates.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\pro_estruc_dates\\pro_estruc_dates.csproj",
+        "projectUniqueName": "E:\\Files\\Milito\\UManizales\\Materias\\Prog2\\FinalProject\\pro_estruc_dates.csproj",
         "projectName": "pro_estruc_dates",
-        "projectPath": "C:\\Users\\ASUS\\pro_estruc_dates\\pro_estruc_dates.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\pro_estruc_dates\\obj\\",
+        "projectPath": "E:\\Files\\Milito\\UManizales\\Materias\\Prog2\\FinalProject\\pro_estruc_dates.csproj",
+        "packagesPath": "C:\\Users\\Milito\\.nuget\\packages\\",
+        "outputPath": "E:\\Files\\Milito\\UManizales\\Materias\\Prog2\\FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Milito\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
