@@ -67,6 +67,12 @@ public class BankSubmenu
             return;
         }
 
+        if (clientsController.SearchByCC(cc) != null)
+        {
+            Console.WriteLine("Ya existe un cliente con esa cédula.");
+            return;
+        }
+
         Console.Write("Nombre completo: ");
         string name = Console.ReadLine();
 
@@ -81,6 +87,12 @@ public class BankSubmenu
         if (!Account.IsValidAccountNumber(accNumber))
         {
             Console.WriteLine($"Número de cuenta inválido. Debe tener exactamente {Account.AccountNumberLength} dígitos.");
+            return;
+        }
+
+        if (clientsController.SearchByAccount(accNumber) != null)
+        {
+            Console.WriteLine("Ya existe un cliente con ese número de cuenta.");
             return;
         }
 
